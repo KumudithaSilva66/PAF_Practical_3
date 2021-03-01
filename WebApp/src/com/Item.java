@@ -75,7 +75,96 @@ public class Item {
 			preparedStmt.execute();
 			con.close();
 			
-			output = "Inserted successfullyo";	
+			output = "Inserted successfully";	
+			
+		} catch (Exception e) {
+			
+			output = "Error while inserting";// TODO: handle exception
+		    System.err.println(e.getMessage());
+		}
+		
+		return output;
+		
+	}
+	
+	public String UpdateItem(String code,String name,String price,String desc)
+	{
+		String output = "";
+		
+		try {
+			
+			Connection con = connect();
+			
+			if(con == null)
+			{
+				return "Error while connecting to database";
+			}
+			
+			//create a prepared statement
+			String query = "UPDATE items SET `itemName` =?, `itemPrice` =?, `itemDesc` =? WHERE `itemCode` =?"; 
+			
+			
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			
+			//binding values
+			
+		
+			
+			preparedStmt.setString(1, name);
+			preparedStmt.setDouble(2,Double.parseDouble(price));
+			preparedStmt.setString(3,desc);
+			preparedStmt.setString(4,code);
+			
+			
+			//execute the statement
+			preparedStmt.execute();
+			con.close();
+			
+			output = "Update successfully";	
+			
+		} catch (Exception e) {
+			
+			output = "Error while inserting";// TODO: handle exception
+		    System.err.println(e.getMessage());
+		}
+		
+		return output;
+		
+	}
+	
+	
+	public String DeleteItem(String code)
+	{
+		String output = "";
+		
+		try {
+			
+			Connection con = connect();
+			
+			if(con == null)
+			{
+				return "Error while connecting to database";
+			}
+			
+			//create a prepared statement
+			String query = " DELETE FROM `items` WHERE `itemcode`=?";  
+			
+			
+			PreparedStatement preparedStmt = con.prepareStatement(query);
+			
+			//binding values
+			
+		
+			
+			preparedStmt.setString(1, code);
+
+			
+			
+			//execute the statement
+			preparedStmt.execute();
+			con.close();
+			
+			output = "Delete successfullly";	
 			
 		} catch (Exception e) {
 			

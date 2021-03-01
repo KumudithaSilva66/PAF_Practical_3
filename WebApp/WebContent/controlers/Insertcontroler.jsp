@@ -13,11 +13,30 @@ String code=request.getParameter("itemcode");
 String name=request.getParameter("itemName");
 String price=request.getParameter("itemPrice");
 String desc=request.getParameter("itemDesc");
-
 Item objItem = new Item();
-String stsMsg= objItem.insertItem(code, name, price, desc);
-session.setAttribute("statusMsg", stsMsg);
-out.print(session.getAttribute("statusMsg"));
+
+if(request.getParameter("Save")!=null){
+	
+	String stsMsg= objItem.insertItem(code, name, price, desc);
+	session.setAttribute("statusMsg", stsMsg);
+	out.print(session.getAttribute("statusMsg"));
+}
+else if(request.getParameter("Update")!=null) {
+	
+	String stsMsg= objItem.UpdateItem(code, name, price, desc);
+	session.setAttribute("statusMsg", stsMsg);
+	out.print(session.getAttribute("statusMsg"));
+	
+}
+else if(request.getParameter("Delete")!=null) {
+	
+	String stsMsg= objItem.DeleteItem(code);
+	session.setAttribute("statusMsg", stsMsg);
+	out.print(session.getAttribute("statusMsg"));
+	
+}
+
+
 %>
 </body>
 </html>

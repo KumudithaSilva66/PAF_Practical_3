@@ -26,11 +26,14 @@
 				Item name: <input type="text" name="itemName" ><br>
 				Item price: <input type="text" name="itemPrice"><br>
 				Item description: <input type="text" name="itemDesc"><br>
-				<input type="submit" name="btnsubmit" value="Save">
+				<input type="submit" name="Save" value="Save">
+				<input type="submit" name="Update" value="Update">
+				<input type="submit" name="Delete" value="Delete">
 				</form>
 				<%--
 				out.print(session.getAttribute("statusMsg"));
 				--%>
+				
 				
 </body>
 </html>
