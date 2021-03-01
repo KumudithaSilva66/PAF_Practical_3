@@ -75,7 +75,7 @@ public class Item {
 			preparedStmt.execute();
 			con.close();
 			
-			output = "Inserted successfully";	
+			output = "Inserted successfullyo";	
 			
 		} catch (Exception e) {
 			
