@@ -28,7 +28,7 @@
 				Item description: <input type="text" name="itemDesc"><br>
 				<input type="submit" name="Save" value="Save">
 				<input type="submit" name="Update" value="Update">
-				<input type="submit" name="Delete" value="Delete">
+				<input type="submit" name="Delete" value="Deletetest">
 				</form>
 				<%--
 				out.print(session.getAttribute("statusMsg"));
