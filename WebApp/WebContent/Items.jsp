@@ -27,8 +27,8 @@
 				Item price: <input type="text" name="itemPrice"><br>
 				Item description: <input type="text" name="itemDesc"><br>
 				<input type="submit" name="Save" value="Save">
-				<input type="submit" name="Update" value="Updatetest">
-				<input type="submit" name="Delete" value="Deletetest">
+				<input type="submit" name="Update" value="Updat">
+				<input type="submit" name="Delete" value="Delete">
 				</form>
 				<%--
 				out.print(session.getAttribute("statusMsg"));
