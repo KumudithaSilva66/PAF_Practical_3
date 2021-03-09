@@ -175,5 +175,62 @@ public class Item {
 		return output;
 		
 	}
+	
+	public String readItems()
+	{
+		String output = "";
+		
+		try 
+		{
+			Connection con = connect();
+			
+			if(con == null)
+			{
+				return "Error while connecting to the database";
+			}
+			
+			//Prepare the HTML table to be displayed
+			
+			output = "<table  class = table border ='1'> <thead class= thead-dark ><tr>"
+					+"<th scope= col>ItemCode</th><th scope= col>ItemName</th><th scope= col>ItemPrice</th><th scope= col>ItemDesc</th>"
+					+"</tr></thead>";
+			
+			String query = "SELECT * FROM items";
+			Statement stmt = con.createStatement();
+			ResultSet rs =stmt.executeQuery(query);
+			
+			// iterate through the rows in the result set
+			
+			while(rs.next())
+			{
+				String itemCode = rs.getString("itemCode");
+				String itemName = rs.getString("itemName");
+				String itemPrice = Float.toString(rs.getFloat("itemPrice"));
+				String itemDese = rs.getString("itemDesc");
+				
+				//Add row into the html table
+				
+				
+				output += "<tr><td>" + itemCode + "</td>";
+				output += "<td>" + itemName + "</td>";
+				output += "<td>" + itemPrice + "</td>";
+				output += "<td>" + itemDese + "</td>";
+
+				
+				
+			}
+			
+			con.close();
+			
+			// complete the table
+			output +="</table>";
+		}
+		
+		catch (Exception e)
+		{
+			output = "Error while reading the items";// TODO: handle exception
+		}
+		return output;
+	}
 
 }

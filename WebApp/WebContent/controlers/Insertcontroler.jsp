@@ -35,7 +35,12 @@ else if(request.getParameter("Delete")!=null) {
 	out.print(session.getAttribute("statusMsg"));
 	
 }
-
+else if(request.getParameter("All")!=null) {
+	
+    String redirectURL = "../Viewall.jsp";
+    response.sendRedirect(redirectURL);
+	
+}
 
 %>
 </body>
